@@ -1,0 +1,39 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "Offline-first POS for bar with stocktaking and remote access",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build -w @pos/shared && npm run build -w @pos/server && npm run build -w @pos/app && npm run build -w @pos/manager-web",
+    "dev": "concurrently -k -n SERVER \"npm:dev -w @pos/server\"",
+    "dev:server": "npm run dev -w @pos/server",
+    "dev:app": "npm run dev -w @pos/app",
+    "lint": "echo 'no lints configured'",
+    "clean": "rimraf packages/*/dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blisstinman95/Pos.git"
+  },
+  "keywords": [
+    "pos",
+    "electron",
+    "offline-first",
+    "stocktaking",
+    "bar"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blisstinman95/Pos/issues"
+  },
+  "homepage": "https://github.com/blisstinman95/Pos#readme",
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.6.3"
+  }
+}
